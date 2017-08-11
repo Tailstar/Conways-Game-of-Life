@@ -48,7 +48,7 @@
 
 /* Main */
 body {
-    background-color: black;
+    /*background-color: black;*/
 }
 #page-wrapper {}
 
@@ -76,6 +76,22 @@ body {
     text-align: center;
 }
 
+#sizecheck {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+}
 
+#sizecheck p {
+    text-align: center;
+    margin-top: 100px;
+    font-family: sans-serif;
+}
 
+@media (min-width: 500px) {
+    #sizecheck {
+        display: none
+    }
+}
 
