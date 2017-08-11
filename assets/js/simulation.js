@@ -1,28 +1,26 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#000000";
 
 var gridX = 25;
 var gridY = 25;
 var grid = createGrid(gridX);
+var tempgrid = createGrid(gridX);
 
 function run() {
+    updateGrid();
     drawGrid();
-    //updateGrid();
 }
 
 function createGrid(rows) {
     var arr = [];
     for (var i = 0; i < rows; i++) {
-        arr[i] = [0]
-        for (var j = 0; j < rows; j++) {
-            arr[i][j] = 0
-        }
+        arr[i] = []
     }
     return arr;
 }
 
 function clickGrid(evt) {
+    ctx.fillStyle = "#000000";
     var posX = Math.floor((evt.clientX - canvas.offsetLeft) / 2 / 10);
     var posY = Math.floor((evt.clientY - canvas.offsetTop) / 2 / 10);
     grid[posX][posY] ^= 1;
@@ -107,17 +105,41 @@ function checkSquares(xpos, ypos) {
     } catch (TypeError) {
         squareCount += 0
     };
-    console.log(squareCount);
+    return squareCount;
 }
 
 function updateGrid() {
     for (var x = 0; x < gridX; x++) {
         for (var y = 0; y < gridY; y++) {
-            // Do seomthing.
+            var cells = checkSquares(x, y);
+            if (grid[x][y] == 1) {
+                if (cells < 2) {
+                    tempgrid[x][y] = 0;
+                } else if (cells >= 2 && cells <= 3) {
+                    tempgrid[x][y] = 1;
+                } else if (cells > 3) {
+                    tempgrid[x][y] = 0;
+                }
+            } else {
+                if (cells == 3) {
+                    tempgrid[x][y] = 1;
+                }
+            }     
         }
     }
+    grid = tempgrid;
+    tempgrid = createGrid(gridX);
 }
 
 function drawGrid() {
     ctx.clearRect(0, 0, gridX, gridY);
+    for (var x = 0; x < gridX; x++) {
+        for (var y = 0; y < gridY; y++) {
+            if (grid[x][y] == 1) {
+                ctx.fillRect(x * 20, y * 20, 20, 20);
+            } else {
+                ctx.clearRect(x * 20, y * 20, 20, 20);
+            }
+        }
+    }
 }
