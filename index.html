@@ -16,6 +16,9 @@
 
     <!-- CSS Tags -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.theme.min.css">
 
     <!-- Other -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -24,19 +27,28 @@
     <div id="sizecheck"><p>This game does not support this screen size!</p></div>
     <!-- Page Wrapper -->
     <div id="page-wrapper">
+        <!-- Header -->
+        <header id="logo">
+            <h1>Conway's Game of Life Simulation</h1>
+        </header>
         <!-- Canvas Content -->
         <div id="game">
-            <div id="game-content" align="center">
+            <div id="game-content">
+                <div id="scrollcheck"><p>Please scroll to the top to play.</p></div>
                 <canvas id="myCanvas" width="500" height="500" onmousedown="clickGrid(event)" style="background-image: url('assets/images/grid.png');"></canvas>
+            </div>
+            <div id="controls">
+                <div id="basic">
+                    <input type="button" id="step" value="Step">
+                </div>
+                <div id="speed">
+                    <span>Step Speed</span>
+                    <input type="text" id="speed-box" size="5px">
+                    <div id="speed-slider"></div>
+                </div>
             </div>
         </div>
         <div id="information">
-            <!-- Header -->
-            <header id="header">
-                <div id="logo">
-                    <a href="index.html"><h1>Conway's Game of Life</h1></a>
-                </div>
-            </header>
             <div id="container">
                 <div class="content">
                     <h2>Rules</h2>
@@ -49,8 +61,19 @@
             </footer>
             -->
         </div>
+        <div id="presets">
+            <p>here are some presets</p>
+        </div>
+        <!-- Scripts -->
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/jquery-ui.min.js"></script>
+        <script type="text/javascript">       
+            $( function() {
+                $( "#speed-slider" ).slider();
+            } );
+        </script>
+        <script src="assets/js/simulation.js"></script>
+        <script src="assets/js/everything.js"></script>
     </div>
-    <!-- Scripts -->
-    <script type="text/javascript" src="assets/js/simulation.js"></script>
 </body>
 </html>
