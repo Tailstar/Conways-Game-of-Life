@@ -237,7 +237,29 @@ function pulsar() {
 
 // Tumbler Preset
 function tumbler() {
-
+    grid[10][7] ^= 1;
+    grid[11][7] ^= 1;
+    grid[13][7] ^= 1;
+    grid[14][7] ^= 1;
+    grid[10][8] ^= 1;
+    grid[11][8] ^= 1;
+    grid[13][8] ^= 1;
+    grid[14][8] ^= 1;
+    grid[11][9] ^= 1;
+    grid[13][9] ^= 1;
+    grid[9][10] ^= 1;
+    grid[11][10] ^= 1;
+    grid[13][10] ^= 1;
+    grid[15][10] ^= 1;
+    grid[9][11] ^= 1;
+    grid[11][11] ^= 1;
+    grid[13][11] ^= 1;
+    grid[15][11] ^= 1;
+    grid[9][12] ^= 1;
+    grid[10][12] ^= 1;
+    grid[14][12] ^= 1;
+    grid[15][12] ^= 1;
+    drawGrid();
 }
 
 // Stills Preset
