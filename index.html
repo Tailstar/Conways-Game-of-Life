@@ -51,8 +51,15 @@
         <div id="information">
             <div id="container">
                 <div class="content">
+                    <h2>What is Conway's Game of Life?</h2>
+                    <p>Conway's Game of Life is a zero-player game that is fun.</p><br>
                     <h2>Rules</h2>
-                    <p>For a space that is populated</p>
+                    <ol>
+                        <li>Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.</li>
+                        <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+                        <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+                        <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+                    </ol>
                 </div>
             </div>
             <!--
@@ -62,7 +69,11 @@
             -->
         </div>
         <div id="presets">
-            <p>here are some presets</p>
+            <p>Here are some presets that can help you get started.</p>
+            <img class="square" src="assets/images/pentadecathlon.png" onmousedown="pentadecathlon()">
+            <img class="square" src="assets/images/pulsar.png" onmousedown="pulsar()">
+            <img class="square" src="assets/images/tumbler.png" onmousedown="tumbler()">
+            <img class="square" src="assets/images/stills.png" onmousedown="stills()">
         </div>
         <!-- Scripts -->
         <script src="assets/js/jquery-3.2.1.min.js"></script>

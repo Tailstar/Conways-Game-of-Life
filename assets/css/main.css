@@ -94,7 +94,11 @@ body {
 #information {
     width: 40%;
     margin-left: 60%;
-    background-color: red;
+    background-color: black;
+}
+
+#information * {
+    color: #FFFFFF;
 }
 
 #presets {
@@ -139,3 +143,20 @@ body {
     }
 }
 
+.square {
+    margin: 5px 5px 5px 5px;
+    border: 2px solid #000000;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+
+.square:hover {
+    -webkit-filter: drop-shadow(0px 0px 0px #222);
+    filter: drop-shadow(0px 0px 0px #222);
+    cursor: pointer;
+}
+
+.square:active {
+    cursor: auto;
+    border: 2px solid #00FF00;
+}
