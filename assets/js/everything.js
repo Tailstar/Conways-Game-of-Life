@@ -23,5 +23,4 @@ function speedSlider (slider, boundTextField) {
 }
 $(function() {
     speedSlider($("#speed-slider"), $("#speed-box"));
-    $("#speed-slider").slider();
 });
