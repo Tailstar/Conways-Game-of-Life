@@ -237,6 +237,8 @@ function pulsar() {
 
 // Tumbler Preset
 function tumbler() {
+    ctx.clearRect(0, 0, gridX, gridY);
+    grid = createGrid(gridX);
     grid[10][7] ^= 1;
     grid[11][7] ^= 1;
     grid[13][7] ^= 1;
@@ -264,6 +266,8 @@ function tumbler() {
 
 // Stills Preset
 function stills() {
+    ctx.clearRect(0, 0, gridX, gridY);
+    grid = createGrid(gridX);
     // Block
     grid[5][2] ^= 1;
     grid[6][2] ^= 1;
