@@ -39,11 +39,11 @@
             </div>
             <div id="controls">
                 <div id="basic">
-                    <input type="button" id="step" value="Step">
+                    <input type="button" id="step" value="Step" onmousedown="updateGrid();drawGrid();">
                 </div>
                 <div id="speed">
                     <span>Step Speed</span>
-                    <input type="text" id="speed-box" size="5px">
+                    <input type="text" id="speed-box" size="5px" placeholder="0">
                     <div id="speed-slider"></div>
                 </div>
             </div>
@@ -78,8 +78,8 @@
         <!-- Scripts -->
         <script src="assets/js/jquery-3.2.1.min.js"></script>
         <script src="assets/js/jquery-ui.min.js"></script>
-        <script src="assets/js/simulation.js"></script>
         <script src="assets/js/everything.js"></script>
+        <script src="assets/js/simulation.js"></script>
     </div>
 </body>
 </html>

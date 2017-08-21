@@ -9,6 +9,7 @@ var gridX = 25;
 var gridY = 25;
 var grid = createGrid(gridX);
 var tempgrid = createGrid(gridX);
+var checker = 0;
 
 function startAnimation(fps) {
     fpsInterval = 1000 / fps;
@@ -138,14 +139,22 @@ function updateGrid() {
                     tempgrid[x][y] = 0;
                 }
             } else {
+                checker ++;
                 if (cells == 3) {
                     tempgrid[x][y] = 1;
+                } else if (checker == 625) {
+                    $( "#speed-slider" ).slider({
+                      value: 0,
+                    });
+                    $("#speed-box").val(0);
+                    startAnimation(0)
                 }
             }     
         }
     }
     grid = tempgrid;
     tempgrid = createGrid(gridX);
+    checker = 0;
 }
 
 function drawGrid() {
@@ -184,54 +193,18 @@ function pentadecathlon() {
 function pulsar() {
     ctx.clearRect(0, 0, gridX, gridY);
     grid = createGrid(gridX);
-    grid[8][6] ^= 1;
-    grid[9][6] ^= 1;
-    grid[10][6] ^= 1;
-    grid[14][6] ^= 1;
-    grid[15][6] ^= 1;
-    grid[16][6] ^= 1;
-    grid[6][8] ^= 1;
-    grid[11][8] ^= 1;
-    grid[13][8] ^= 1;
-    grid[18][8] ^= 1;
-    grid[6][9] ^= 1;
-    grid[11][9] ^= 1;
-    grid[13][9] ^= 1;
-    grid[18][9] ^= 1;
-    grid[6][10] ^= 1;
-    grid[11][10] ^= 1;
-    grid[13][10] ^= 1;
-    grid[18][10] ^= 1;
-    grid[8][11] ^= 1;
-    grid[9][11] ^= 1;
+    grid[10][10] ^= 1;
+    grid[12][10] ^= 1;
+    grid[14][10] ^= 1;
     grid[10][11] ^= 1;
     grid[14][11] ^= 1;
-    grid[15][11] ^= 1;
-    grid[16][11] ^= 1;
-    grid[8][13] ^= 1;
-    grid[9][13] ^= 1;
+    grid[10][12] ^= 1;
+    grid[14][12] ^= 1;
     grid[10][13] ^= 1;
     grid[14][13] ^= 1;
-    grid[15][13] ^= 1;
-    grid[16][13] ^= 1;
-    grid[6][14] ^= 1;
-    grid[11][14] ^= 1;
-    grid[13][14] ^= 1;
-    grid[18][14] ^= 1;
-    grid[6][15] ^= 1;
-    grid[11][15] ^= 1;
-    grid[13][15] ^= 1;
-    grid[18][15] ^= 1;
-    grid[6][16] ^= 1;
-    grid[11][16] ^= 1;
-    grid[13][16] ^= 1;
-    grid[18][16] ^= 1;
-    grid[8][18] ^= 1;
-    grid[9][18] ^= 1;
-    grid[10][18] ^= 1;
-    grid[14][18] ^= 1;
-    grid[15][18] ^= 1;
-    grid[16][18] ^= 1;
+    grid[10][14] ^= 1;
+    grid[12][14] ^= 1;
+    grid[14][14] ^= 1;
     drawGrid();
 }
 

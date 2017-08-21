@@ -17,7 +17,7 @@ function speedSlider (slider, boundTextField) {
 		max: 30,
 		slide: function (event, ui) {
 			boundTextField.val(ui.value);
-			startAnimation(ui.value)
+			startAnimation(ui.value);
 		}
 	})
 }
