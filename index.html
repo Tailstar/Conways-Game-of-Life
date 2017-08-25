@@ -37,49 +37,73 @@
                 <div id="scrollcheck"><p>Please scroll to the top to play.</p></div>
                 <canvas id="myCanvas" width="500" height="500" onmousedown="clickGrid(event)" style="background-image: url('assets/images/grid.png');"></canvas>
             </div>
+            <div id="basic">
+                <input type="button" value="Step" onmousedown="updateGrid();drawGrid();">
+                <input type="button" value="Clear" onmousedown="ctx.clearRect(0, 0, gridX, gridY);grid = createGrid(gridX);drawGrid();">
+                <input type="button" id="rainbow_button" value="Rainbow!" onmousedown="rainbow();" >
+                <input type="button" id="super_rainbow_button" value="Super Rainbow!" onmousedown="super_rainbow();">
+                <select id="theme" onchange="themeswitch();">
+                    <option value="none" selected>-- Select Theme -- </option>
+                    <option value="default" >Default</option>
+                    <option value="matrix">Matrix</option>
+                    <option value="inverted">Inverted</option>
+                </select>
+            </div>
             <div id="controls">
-                <div id="basic">
-                    <input type="button" id="step" value="Step" onmousedown="updateGrid();drawGrid();">
-                </div>
                 <div id="speed">
-                    <span>Step Speed</span>
-                    <input type="text" id="speed-box" size="5px" placeholder="0">
+                    <span>Step Speed (FPS)</span>
+                    <input type="text" id="speed-box" name="speed-box" size="5px" placeholder="0">
                     <div id="speed-slider"></div>
                 </div>
-            </div>
+            </div><br><br><br><br>
+            <p style="font-family: sans-serif; font-size: 0.9em;"><strong>NOTE:</strong> Please avoid a high step speed with rainbow enabled as it may cause seizures or epilepsy for some people.</p>
         </div>
         <div id="information">
             <div id="container">
                 <div class="content">
-                    <h2>What is Conway's Game of Life?</h2>
-                    <p>Conway's Game of Life is a zero-player game that is fun.</p><br>
-                    <h2>Rules</h2>
-                    <ol>
+                    <h2 class="heading">What is Conway's Game of Life?</h2>
+                    <p>Conway's Game of Life, otherwise known simply as Life, is a cellular automaton devised by the British mathmatician John Horton Conway.</p><br>
+                    <h2 class="heading">Rules</h2>
+                    <ol id="rules">
                         <li>Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.</li>
                         <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
                         <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
                         <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
-                    </ol>
+                    </ol><br>
+                    <h2 class="heading">Basic Controls</h2>
+                    <p>Left Click: Switch cell state</p>
+                    <p>Step Button: Create next generation</p>
+                    <p>Step Speed: Automatic generation creation</p>
+                    <p>Presets: Click to load preset</p><br>
+                    <h2 class="heading">How does it work?</h2>
+                    <p>The intial pattern you create sets the <em>seed</em> of the system. The first generation is created through applying the four rules above to every cell. Births and deaths occur simultaneously. These rules are continually applied repeatedly to create further generations.</p><br>
                 </div>
             </div>
-            <!--
-            <footer id="footer">
-                <span class="copyright">&copy; BluStar. Design: <a href="http://tailstar.us">BluStar</a></span>
-            </footer>
-            -->
         </div>
         <div id="presets">
-            <p>Here are some presets that can help you get started.</p>
-            <img class="square" src="assets/images/pentadecathlon.png" onmousedown="pentadecathlon()">
-            <img class="square" src="assets/images/pulsar.png" onmousedown="pulsar()">
-            <img class="square" src="assets/images/tumbler.png" onmousedown="tumbler()">
-            <img class="square" src="assets/images/stills.png" onmousedown="stills()">
+            <div id="preset-title">
+                <h2 class="heading">Here are some presets to help you get started.</h2>
+            </div>
+            <img id="pentadecathlon" class="square" src="assets/images/pentadecathlon.png" onmousedown="pentadecathlon()">
+            <img id="pulsar" class="square" src="assets/images/pulsar.png" onmousedown="pulsar()">
+            <img id="tumbler" class="square" src="assets/images/tumbler.png" onmousedown="tumbler()">
+            <img id="stills" class="square" src="assets/images/stills.png" onmousedown="stills()">
+            <img id="thunderbird" class="square" src="assets/images/thunderbird.png" onmousedown="thunderbird()">
         </div>
+        <footer class="page-footer">
+            <div class="footer-top-bg"></div>
+            <div class="footer-content-wrapper">
+                <div class="footer-content">
+                    Blu Star &copy; 2017</a>
+                </div>
+            </div>
+        </footer>
         <!-- Scripts -->
         <script src="assets/js/jquery-3.2.1.min.js"></script>
         <script src="assets/js/jquery-ui.min.js"></script>
         <script src="assets/js/everything.js"></script>
         <script src="assets/js/simulation.js"></script>
+
     </div>
 </body>
 </html>
